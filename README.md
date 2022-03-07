@@ -232,7 +232,7 @@ Mayur Dongre , Indian Institute of Information Technoology Nagpur.
 2. Sameer Durgoji, NIT Karnataka
 3.https://esim.marathoniitb.in/
 ## References
-  1)https://en.wikipedia.org/wiki/Wallace_tree
+  1)Wikipedia-https://en.wikipedia.org/wiki/Wallace_tree
 
   2)Youtube Video -https://www.youtube.com/watch?v=lcPIMvI57dM&t=114s
 
