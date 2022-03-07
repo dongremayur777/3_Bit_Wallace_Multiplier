@@ -4,10 +4,10 @@ Mixed_Signal_Circuit
   * [Reference Circuit Details](#reference-circuit-details)
   * [Reference Circuit Diagram](#reference-circuit-diagram)
   * [Reference Circuit Waveform](#reference-circuit-waveform)
-  * [Desirable Truth Table](#desirable-truth-table)
   * [Tools Used](#tools-used)
-- [Simulation in Synopsys](#simulation-in-synopsys)
-  * [Inverter_Block](#inverter_block)
+- [Simulation in ESIM](#simulation-in-esim)
+  * [Verilog_Code](#verilog_code)
+  * [Makerchip_Block](#makerchip_block)
   * [Carry_Block](#carry_block)
   * [Sum_Block](#sum_block)
   * [Parameters set for Voltage Source for Input A](#parameters-set-for-voltage-source-for-input-a)
@@ -24,38 +24,132 @@ Mixed_Signal_Circuit
 
 
 ## Abstract
-Full adder is an essential component for the design and development of all types of processors like digital signal processors (DSP), microprocessors etc. In most of these systems adder lies in the critical path that affects the overall speed of the system.An adder is a digital circuit that performs addition of numbers and it plays an important role in today’s digital world. In processors and other kinds of computing devices, Adders are used in the arithmetic logic units. They are also utilized in other parts of the processors for calculating addresses, table indices, increment and decrement operations and other similar operations because it is the basic building block of on-chip libraries. Also, it can be used for the construction of many number representations and it is a trivial to modify an adder into an adder-subtractor. Full adder reduces circuit complexity and can be integrated in the calculators for addition and subtraction operations. At DSP oriented system and at networking side full adder is used mostly. Full adders can be cascaded (e.g.: ripple carry adder) easily so that one can make a cascade to add any number of bits that form the word- width of a system.
+Multiplication process is often used in digital signal processing systems, microprocessors designs, communication systems, and other application specific integrated circuits. Multipliers are complex units and play an important role in deciding the overall area, speed and power consumption of digital designs.A Wallace multiplier is a hardware implementation of a binary multiplier, a digital circuit that multiplies two integers. It uses a selection of full and half adders (the Wallace tree or Wallace reduction) to sum partial products in stages until two numbers are left.Compared to naively adding partial products with regular adders, the benefit of the Wallace tree is its faster speed. It has reduction layers, but each layer has only propagation delay. A naive addition of partial products would require time. As making the partial products is and the final addition is , the total multiplication is , not much slower than addition.
 ## Reference Circuit Details
 
-Conventional CMOS Full Adder is the most basic full adder implementation techniques. Conventional CMOS Full Adder consists of 28 transistors. A, B and Cin are the inputs and Sum & Cout are the outputs. Static logic provides robustness against noise effects, so automatically provides a reliable operation. Pseudo NMOS pass-transistor logic and reduce the number of transistors required to implement a given logic function but these suffer from static power dissipation. On the other hand, dynamic logic requires less silicon area for implementation of complex function but charge leakage and charge refreshing are required which reduces the frequency of operation. This circuit uses both NMOS and PMOS transistors. In Conventional CMOS Full Adder, there are many leakage paths which lead to more sub threshold leakage.
+The Wallace tree has three steps:
+1)Multiply each bit of one of the arguments, by each bit of the other.
+2)Reduce the number of partial products to two by layers of full and half adders.
+3)Group the wires in two numbers, and add them with a conventional adder.
+The input is 3-bit numbers which will be multiplied using the Wallace tree algorithm and it will produce a 6-bit product. This structure is implemented using half adders, full adders and AND gates. Initially, every bit is multiplied with every bit of the other number, then these partial products which have weight equal to the product of its factors are further reduced to obtain the respective weights by using half adders or full adders based on the size. The final result is calculated by the sum of all these partial products.
 
 ## Reference Circuit Diagram
-<img width="1371" alt="Reference_Ckt" src="https://user-images.githubusercontent.com/59500283/155388072-53c63be1-69c2-4d84-90e7-4cb95889fb67.png">
+<![Schematic](https://user-images.githubusercontent.com/59500283/157089103-de39dddf-1199-4e3d-8672-0ee1c45a7ad5.jpeg)>
 
 ## Reference Circuit Waveform
-<img width="1436" alt="Reference_Waveform" src="https://user-images.githubusercontent.com/59500283/155388452-6be190ea-c1f7-40b9-b905-c51b84594cd4.png">
-
-## Desirable Truth Table
-![Full_adder_Truth_Table](https://user-images.githubusercontent.com/59500283/155389650-b7823b97-2f40-4cf2-bb7a-72e5364af9b2.jpeg)
-
+<![Waveforms](https://user-images.githubusercontent.com/59500283/157089156-d8fbe222-5b1b-44fa-b643-72e0748a3d3e.jpeg)>
 
 ## Tools Used:
-• Synopsys Custom Compiler:
- The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. This tool was used to design the circuit on a transistor level.
+• eSim (formerly known as Oscad/FreeEDA) is an open source EDA tool for circuit design, simulation, analysis and PCB design, developed by the FOSSEE team at IIT Bombay. Using open source software, such as KiCad, Ngspice, Python and Scilab, we have built an integrated open source EDA tool, eSim.
  
- ![custom_compiler](https://user-images.githubusercontent.com/59500283/155473715-c6a1fd5b-71c7-4655-936a-5fe3befabfd8.png)
+ <img width="980" alt="Screenshot 2022-03-07 at 8 41 18 PM" src="https://user-images.githubusercontent.com/59500283/157089564-f1b58be4-cafd-465c-8e46-189c9c6c1b43.png">
 
+# Simulation in ESIM
+The First Task we do here is to create a model of 3_bit_Wallace Multiplier using Makerchip and NGVeri where we write a verilog code for it.
+##Verilog_Code
+module mayur_half_adder(
+    Data_in_A,
+    Data_in_B,
+    Data_out_Sum,
+    Data_out_Carry
+    );
 
-• Synopsys Primewave:
- PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. This tool helped in various types of simulations of the above designed circuit.
+    //what are the input ports.
+    input Data_in_A;
+    input Data_in_B;
+    //What are the output ports.
+    output Data_out_Sum;
+     output Data_out_Carry;
+     
+     //Implement the Sum and Carry equations using Verilog Bit operators.
+     assign Data_out_Sum = Data_in_A ^ Data_in_B;  //XOR operation
+     assign Data_out_Carry = Data_in_A & Data_in_B; //AND operation
+    
+endmodule
 
-• Synopsys 28nm PDK:
- The Synopsys 28nm Process Design Kit(PDK) was used in creation and simulation of the above designed circuit.
+module mayur_full_adder(
+    Data_in_A,  //input A
+    Data_in_B,  //input B
+    Data_in_C,  //input C
+    Data_out_Sum,
+    Data_out_Carry
+    );
 
-# Simulation in Synopsys
-## Inverter_Block
-<img width="652" alt="Inverter_Block" src="https://user-images.githubusercontent.com/59500283/155388618-816e32ce-0ad8-4ee1-a714-6e3a7c4a64df.png">
-<img width="660" alt="Inverter_Symbol" src="https://user-images.githubusercontent.com/59500283/155388658-538a86b3-c842-47f0-beb3-12bd8d25db28.png">
+    //what are the input ports.
+    input Data_in_A;
+    input Data_in_B;
+     input Data_in_C;
+    //What are the output ports.
+    output Data_out_Sum;
+     output Data_out_Carry;
+     //Internal variables
+     wire ha1_sum;
+     wire ha2_sum;
+     wire ha1_carry;
+     wire ha2_carry;
+     wire Data_out_Sum;
+     wire Data_out_Carry;
+
+     //Instantiate the half adder 1
+    mayur_half_adder  ha1(
+        .Data_in_A(Data_in_A),
+        .Data_in_B(Data_in_B),
+        .Data_out_Sum(ha1_sum),
+        .Data_out_Carry(ha1_carry)
+    );
+    
+    //Instantiate the half adder 2
+    mayur_half_adder  ha2(
+        .Data_in_A(Data_in_C),
+        .Data_in_B(ha1_sum),
+        .Data_out_Sum(ha2_sum),
+        .Data_out_Carry(ha2_carry)
+    );
+
+    //sum output from 2nd half adder is connected to full adder output
+    assign Data_out_Sum = ha2_sum;  
+    //The carry's from both the half adders are OR'ed to get the final carry./
+    assign Data_out_Carry = ha1_carry | ha2_carry;
+    
+endmodule
+
+module mayur_wallace(A,B,prod);
+    
+    //inputs and outputs
+    input [2:0] A,B;
+    output [5:0] prod;
+    //internal variables.
+    wire s11,s12,s13,s22,s23,s32,s35,s34;
+    wire c11,c12,c13,c22,c23,c32,c35;
+    wire [2:0] p0,p1,p2,p3;
+
+//initialize the p's.
+    assign  p0 = A & {3{B[0]}};
+    assign  p1 = A & {3{B[1]}};
+    assign  p2 = A & {3{B[2]}};
+
+//final product assignments    
+    assign prod[0] = p0[0];
+    assign prod[1] = s11;
+    assign prod[2] = s22;
+    assign prod[3] = s32;
+    assign prod[4] = s34;
+    assign prod[5] = s35;
+
+//first stage
+    mayur_half_adder ha11 (p0[1],p1[0],s11,c11);
+    mayur_full_adder fa12(p0[2],p1[1],c11,s12,c12);
+    mayur_half_adder ha15(p1[2],c12,s13,c13);
+
+//second stage
+    mayur_half_adder ha22 (p2[0],s12,s22,c22);
+    mayur_full_adder fa23 (p2[1],c22,s13,s32,c32);
+    mayur_full_adder fa24 (p2[2],c13,c32,s34,s35);
+
+endmodule
+
+## Makerchip_Block
+<img width="1440" alt="Screenshot 2022-03-07 at 8 43 52 PM" src="https://user-images.githubusercontent.com/59500283/157091147-2f2f0d22-ba91-4351-9cd7-7bc3939535d7.png">
 
 ## Carry_Block
 
@@ -199,23 +293,19 @@ xi15 a b c net33 gnd! net50 net55 sum_block
 ```
 
 ## Conclusion
-Thus, the addition for a single-bit is achieved using 28T full adder.
+Thus, the Multiplication for a Two 3_Bit Numbers is achieved using Wallace Multiplier.
 
 ## Author
 Mayur Dongre , Indian Institute of Information Technoology Nagpur.
 ## Acknowledgement
 1. Kunal Ghosh, Co-founder, VSD Corp. Pvt. Ltd. - kunalpghosh@gmail.com
-2. Chinmay panda, IIT Hyderabad
-3. Sameer Durgoji, NIT Karnataka
-4. [Synopsys Team/Company](https://www.synopsys.com/)
-5. https://www.iith.ac.in/events/2022/02/15/Cloud-Based-Analog-IC-Design-Hackathon/
+2. Sameer Durgoji, NIT Karnataka
+3.https://esim.marathoniitb.in/
 ## References
-1)Analysis and Performance Evaluation of 1-bit Full Adder Using Different Topologies
-http://pnrsolution.org/Datacenter/Vol5/Issue1/26.pdf
+1) https://en.wikipedia.org/wiki/Wallace_tree
 
-2)Power and Delay Comparison in between Different types of Full Adder Circuits
-https://www.ijareeie.com/upload/september/7_Power%20and%20Delay%20Comparison.pdf
+2)Youtube Video -https://www.youtube.com/watch?v=lcPIMvI57dM&t=114s
 
-3)[Youtube Video](https://www.youtube.com/watch?v=AXU_J4wr_yA)
+3)PriyankaMishraandSeemaNayak.AStudyon Wallace Tree Multiplier. https://www.researchgate.net/publication/32720922 
 
   
