@@ -234,8 +234,8 @@ Mayur Dongre , Indian Institute of Information Technoology Nagpur.
 ## References
 1) https://en.wikipedia.org/wiki/Wallace_tree
 
- 2)Youtube Video -https://www.youtube.com/watch?v=lcPIMvI57dM&t=114s
+  2)Youtube Video -https://www.youtube.com/watch?v=lcPIMvI57dM&t=114s
 
- 3)PriyankaMishraandSeemaNayak.AStudyon Wallace Tree Multiplier. https://www.researchgate.net/publication/32720922 
+  3)PriyankaMishraandSeemaNayak.AStudyon Wallace Tree Multiplier. https://www.researchgate.net/publication/32720922 
 
   
