@@ -1,0 +1,697 @@
+
+No compatibility mode selected!
+
+
+Circuit: * /home/bt19ece016/esim-workspace/wallace/wallace.cir
+
+Reducing trtol to 1 for xspice 'A' devices
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Warning: v6: no DC value, transient time 0 value used
+Warning: v5: no DC value, transient time 0 value used
+Warning: v4: no DC value, transient time 0 value used
+Warning: v3: no DC value, transient time 0 value used
+Warning: v2: no DC value, transient time 0 value used
+Warning: v1: no DC value, transient time 0 value used
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=0
+B=0
+prod=0
+
+Inside foo after eval.....
+A=0
+B=0
+prod=0
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=0
+B=0
+prod=0
+
+Inside foo after eval.....
+A=0
+B=0
+prod=0
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+a2                                           0
+a1                                           0
+a0                                           0
+b2                                           0
+b1                                           0
+b0                                           0
+prod1                                        0
+prod3                                        0
+prod5                                        0
+net-_r2-pad1_                                0
+net-_r4-pad1_                                0
+net-_r6-pad1_                                0
+prod0                                        0
+net-_r1-pad1_                                0
+net-_r5-pad1_                                0
+prod4                                        0
+prod2                                        0
+net-_r3-pad1_                                0
+v6#branch                                    0
+v5#branch                                    0
+v4#branch                                    0
+v3#branch                                    0
+v2#branch                                    0
+v1#branch                                    0
+a3#branch_1_0                                0
+a3#branch_1_1                                0
+a3#branch_1_2                                0
+a3#branch_1_3                                0
+a3#branch_1_4                                0
+a3#branch_1_5                                0
+
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=0
+B=0
+prod=0
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=3
+B=3
+prod=9
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=3
+B=3
+prod=9
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=5
+B=5
+prod=25
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=5
+B=5
+prod=25
+
+Inside foo after eval.....
+A=5
+B=5
+prod=25
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=5
+B=5
+prod=25
+
+Inside foo after eval.....
+A=1
+B=1
+prod=1
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=1
+B=1
+prod=1
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=6
+B=6
+prod=36
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=6
+B=6
+prod=36
+
+Inside foo after eval.....
+A=6
+B=6
+prod=36
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=6
+B=6
+prod=36
+
+Inside foo after eval.....
+A=2
+B=2
+prod=4
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=2
+B=2
+prod=4
+
+Inside foo after eval.....
+A=6
+B=6
+prod=36
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=6
+B=6
+prod=36
+
+Inside foo after eval.....
+A=6
+B=6
+prod=36
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=6
+B=6
+prod=36
+
+Inside foo after eval.....
+A=6
+B=6
+prod=36
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=6
+B=6
+prod=36
+
+Inside foo after eval.....
+A=4
+B=4
+prod=16
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=4
+B=4
+prod=16
+
+Inside foo after eval.....
+A=4
+B=4
+prod=16
+=============mayur_wallace : New Iteration===========
+Instance : 0
+
+Inside foo before eval.....
+A=4
+B=4
+prod=16
+
+Inside foo after eval.....
+A=0
+B=0
+prod=0
+
+No. of Data Rows : 1162
+ERROR: (internal)  This operation is not defined for display type PrinterOnly.
+Can't open viewport for graphics.
+binary raw file "/home/bt19ece016/eSim-Workspace/wallace/wallace.raw"
+Reducing trtol to 1 for xspice 'A' devices
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Warning: v6: no DC value, transient time 0 value used
+Warning: v5: no DC value, transient time 0 value used
+Warning: v4: no DC value, transient time 0 value used
+Warning: v3: no DC value, transient time 0 value used
+Warning: v2: no DC value, transient time 0 value used
+Warning: v1: no DC value, transient time 0 value used
+No. of Data Columns : 31     
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=0
+B=0
+prod=0
+
+Inside foo after eval.....
+A=0
+B=0
+prod=0
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=0
+B=0
+prod=0
+
+Inside foo after eval.....
+A=0
+B=0
+prod=0
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+a2                                           0
+a1                                           0
+a0                                           0
+b2                                           0
+b1                                           0
+b0                                           0
+prod1                                        0
+prod3                                        0
+prod5                                        0
+net-_r2-pad1_                                0
+net-_r4-pad1_                                0
+net-_r6-pad1_                                0
+prod0                                        0
+net-_r1-pad1_                                0
+net-_r5-pad1_                                0
+prod4                                        0
+prod2                                        0
+net-_r3-pad1_                                0
+v6#branch                                    0
+v5#branch                                    0
+v4#branch                                    0
+v3#branch                                    0
+v2#branch                                    0
+v1#branch                                    0
+a3#branch_1_0                                0
+a3#branch_1_1                                0
+a3#branch_1_2                                0
+a3#branch_1_3                                0
+a3#branch_1_4                                0
+a3#branch_1_5                                0
+
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=0
+B=0
+prod=0
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=3
+B=3
+prod=9
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=3
+B=3
+prod=9
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=5
+B=5
+prod=25
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=5
+B=5
+prod=25
+
+Inside foo after eval.....
+A=5
+B=5
+prod=25
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=5
+B=5
+prod=25
+
+Inside foo after eval.....
+A=1
+B=1
+prod=1
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=1
+B=1
+prod=1
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=7
+B=7
+prod=49
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=7
+B=7
+prod=49
+
+Inside foo after eval.....
+A=6
+B=6
+prod=36
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=6
+B=6
+prod=36
+
+Inside foo after eval.....
+A=6
+B=6
+prod=36
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=6
+B=6
+prod=36
+
+Inside foo after eval.....
+A=2
+B=2
+prod=4
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=2
+B=2
+prod=4
+
+Inside foo after eval.....
+A=6
+B=6
+prod=36
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=6
+B=6
+prod=36
+
+Inside foo after eval.....
+A=6
+B=6
+prod=36
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=6
+B=6
+prod=36
+
+Inside foo after eval.....
+A=6
+B=6
+prod=36
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=6
+B=6
+prod=36
+
+Inside foo after eval.....
+A=4
+B=4
+prod=16
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=4
+B=4
+prod=16
+
+Inside foo after eval.....
+A=4
+B=4
+prod=16
+=============mayur_wallace : New Iteration===========
+Instance : 1
+
+Inside foo before eval.....
+A=4
+B=4
+prod=16
+
+Inside foo after eval.....
+A=0
+B=0
+prod=0
+
+No. of Data Rows : 1162
+
+Total analysis time (seconds) = 0.060849
+
+Total CPU time (seconds) = 0.126 
+
+Total DRAM available = 257855.305 MB.
+DRAM currently available = 235912.391 MB.
+Maximum ngspice program size =   89.289 MB.
+Current ngspice program size =   11.609 MB.
+
+Shared ngspice pages =    9.379 MB.
+Text (code) pages =    6.285 MB.
+Stack = 0 bytes.
+Library pages =    2.875 MB.
+
