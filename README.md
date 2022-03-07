@@ -8,15 +8,10 @@ Mixed_Signal_Circuit
 - [Simulation in ESIM](#simulation-in-esim)
   * [Verilog_Code](#verilog_code)
   * [Makerchip_Block](#makerchip_block)
-  * [Carry_Block](#carry_block)
-  * [Sum_Block](#sum_block)
-  * [Parameters set for Voltage Source for Input A](#parameters-set-for-voltage-source-for-input-a)
-  * [Parameters set for Voltage Source for Input B](#parameters-set-for-voltage-source-for-input-b)
-  * [Parameters set for Voltage Source for Input C](#parameters-set-for-voltage-source-for-input-c)
-  * [Transient Settings](#transient-settings)
-  * [Schematic of Full_Adder using the above Blocks](#schematic-of-full_adder-using-the-above-blocks)
-  * [Output Waveform](#output-waveform)
+  * [Schematic_Model](#schematic_model)
   * [Netlist](#netlist)
+  * [Waveforms](#waveforms)
+  * [Using_Gaw](#using_gaw)
   * [Conclusion](#conclusion)
   * [Author](#author)
   * [Acknowledgement](#acknowlegement)
@@ -48,7 +43,7 @@ The input is 3-bit numbers which will be multiplied using the Wallace tree algor
 The First Task we do here is to create a model of 3_bit_Wallace Multiplier using Makerchip and NGVeri where we write a verilog code for it.
 
 ## Verilog_Code
-module mayur_half_adder(
+    module mayur_half_adder(
     Data_in_A,
     Data_in_B,
     Data_out_Sum,
@@ -65,10 +60,9 @@ module mayur_half_adder(
      //Implement the Sum and Carry equations using Verilog Bit operators.
      assign Data_out_Sum = Data_in_A ^ Data_in_B;  //XOR operation
      assign Data_out_Carry = Data_in_A & Data_in_B; //AND operation
-    
-endmodule
+    endmodule
 
-module mayur_full_adder(
+    module mayur_full_adder(
     Data_in_A,  //input A
     Data_in_B,  //input B
     Data_in_C,  //input C
@@ -112,9 +106,9 @@ module mayur_full_adder(
     //The carry's from both the half adders are OR'ed to get the final carry./
     assign Data_out_Carry = ha1_carry | ha2_carry;
     
-endmodule
+    endmodule
 
-module mayur_wallace(A,B,prod);
+    module mayur_wallace(A,B,prod);
     
     //inputs and outputs
     input [2:0] A,B;
@@ -124,12 +118,12 @@ module mayur_wallace(A,B,prod);
     wire c11,c12,c13,c22,c23,c32,c35;
     wire [2:0] p0,p1,p2,p3;
 
-//initialize the p's.
+    //initialize the p's.
     assign  p0 = A & {3{B[0]}};
     assign  p1 = A & {3{B[1]}};
     assign  p2 = A & {3{B[2]}};
 
-//final product assignments    
+    //final product assignments    
     assign prod[0] = p0[0];
     assign prod[1] = s11;
     assign prod[2] = s22;
@@ -137,54 +131,95 @@ module mayur_wallace(A,B,prod);
     assign prod[4] = s34;
     assign prod[5] = s35;
 
-//first stage
+    //first stage
     mayur_half_adder ha11 (p0[1],p1[0],s11,c11);
     mayur_full_adder fa12(p0[2],p1[1],c11,s12,c12);
     mayur_half_adder ha15(p1[2],c12,s13,c13);
 
-//second stage
+    //second stage
     mayur_half_adder ha22 (p2[0],s12,s22,c22);
     mayur_full_adder fa23 (p2[1],c22,s13,s32,c32);
     mayur_full_adder fa24 (p2[2],c13,c32,s34,s35);
 
-endmodule
+    endmodule
 
 ## Makerchip_Block
 <img width="1440" alt="Screenshot 2022-03-07 at 8 43 52 PM" src="https://user-images.githubusercontent.com/59500283/157091147-2f2f0d22-ba91-4351-9cd7-7bc3939535d7.png">
 
-## Carry_Block
 
-<img width="1422" alt="Carry_Block" src="https://user-images.githubusercontent.com/59500283/155388804-95e2aeb2-7f21-456e-bb09-ebc4cecf9253.png">
-<img width="590" alt="Carry_Symbol" src="https://user-images.githubusercontent.com/59500283/155388883-20e31e93-54c2-497b-9062-3c1d7e855d4c.png">
+Using NGVeri and the above Verilog Code We Create the 3_Bit_Wallace Model.
 
-## Sum_Block
-<img width="1440" alt="Sum_Block" src="https://user-images.githubusercontent.com/59500283/155390426-86a5188d-2bf9-46fc-9396-1412fb35c22c.png">
-<img width="1432" alt="Sum_Symbol" src="https://user-images.githubusercontent.com/59500283/155390464-23c4c947-44cc-4dde-8aed-828c80fe98f7.png">
+## Schematic_Model
 
+<img width="1346" alt="Screenshot 2022-03-07 at 8 04 00 PM" src="https://user-images.githubusercontent.com/59500283/157094037-2ddcece6-f239-4c77-9935-6e3b7d5460d0.png">
 
-## Parameters set for Voltage Source for Input A
-<img width="357" alt="A_Pulse" src="https://user-images.githubusercontent.com/59500283/155388964-19e9a68d-e11c-4b39-8a08-1bdd65005658.png">
-
-## Parameters set for Voltage Source for Input B
-<img width="357" alt="B_Pulse" src="https://user-images.githubusercontent.com/59500283/155388995-879f0e25-8a64-4e78-bd85-e79c15a113f4.png">
-
-## Parameters set for Voltage Source for Input C
-<img width="354" alt="C_Pulse" src="https://user-images.githubusercontent.com/59500283/155389151-0461b3bf-d8d1-4464-a471-0056d355ffc4.png">
-
-
-## Transient Settings
-<img width="675" alt="Transient_Analysis" src="https://user-images.githubusercontent.com/59500283/155389323-55075cf7-a4e3-4ee8-8d6a-52facd7a74bf.png">
-
-## Schematic of Full_Adder using the above Blocks
-<img width="1431" alt="Final_Design" src="https://user-images.githubusercontent.com/59500283/155389447-252a7eb4-16f6-4aee-96d4-76d396d15b0e.png">
-
-## Output Waveform
-<img width="1435" alt="Output" src="https://user-images.githubusercontent.com/59500283/155389768-d8bf8e3f-72a5-426d-b366-3b6548f98d23.png">
-
+After Drawing the Schematic we generate a netlist and then we use a KICAD to NGSPICE Converter
 
 ## Netlist
 
+* /home/bt19ece016/esim-workspace/wallace/wallace.cir
 
+* u2  net-_u2-pad1_ net-_u2-pad2_ net-_u2-pad3_ net-_u2-pad4_ net-_u2-pad5_ net-_u2-pad6_ net-_u2-pad7_ net-_u2-pad8_ net-_u2-pad9_ net-_u2-pad10_ net-_u2-pad11_ net-_u2-pad12_ mayur_wallace
+* u8  a2 a1 a0 b2 b1 b0 net-_u2-pad1_ net-_u2-pad2_ net-_u2-pad3_ net-_u2-pad4_ net-_u2-pad5_ net-_u2-pad6_ adc_bridge_6
+v1  a2 gnd pulse(0 5 0 0.1m 0.1m 5 10)
+v2  a1 gnd pulse(0 5 0 0.1m 0.1m 10 20)
+v3  a0 gnd pulse(0 5 0 0.1m 0.1m 20 40)
+v4  b2 gnd pulse(0 5 0 0.1m 0.1m 5 10)
+v5  b1 gnd pulse(0 5 0 0.1m 0.1m 10 20)
+v6  b0 gnd pulse(0 5 0 0.1m 0.1m 20 40)
+* u1  a2 plot_v1
+* u3  a1 plot_v1
+* u4  a0 plot_v1
+* u5  b2 plot_v1
+* u6  b1 plot_v1
+* u7  b0 plot_v1
+c2  prod1 gnd 1u
+c4  prod3 gnd 1u
+c6  prod5 gnd 1u
+r2  net-_r2-pad1_ prod1 1k
+r4  net-_r4-pad1_ prod3 1k
+r6  net-_r6-pad1_ prod5 1k
+* u15  prod5 plot_v1
+* u13  prod3 plot_v1
+* u11  prod1 plot_v1
+* u9  net-_u2-pad7_ net-_u2-pad8_ net-_u2-pad9_ net-_u2-pad10_ net-_u2-pad11_ net-_u2-pad12_ net-_r6-pad1_ net-_r5-pad1_ net-_r4-pad1_ net-_r3-pad1_ net-_r2-pad1_ net-_r1-pad1_ dac_bridge_6
+c1  prod0 gnd 1u
+r1  net-_r1-pad1_ prod0 1k
+* u10  prod0 plot_v1
+r5  net-_r5-pad1_ prod4 1k
+c5  prod4 gnd 1u
+* u14  prod4 plot_v1
+c3  prod2 gnd 1u
+r3  net-_r3-pad1_ prod2 1k
+* u12  prod2 plot_v1
+a1 [net-_u2-pad1_ net-_u2-pad2_ net-_u2-pad3_ ] [net-_u2-pad4_ net-_u2-pad5_ net-_u2-pad6_ ] [net-_u2-pad7_ net-_u2-pad8_ net-_u2-pad9_ net-_u2-pad10_ net-_u2-pad11_ net-_u2-pad12_ ] u2
+a2 [a2 a1 a0 b2 b1 b0 ] [net-_u2-pad1_ net-_u2-pad2_ net-_u2-pad3_ net-_u2-pad4_ net-_u2-pad5_ net-_u2-pad6_ ] u8
+a3 [net-_u2-pad7_ net-_u2-pad8_ net-_u2-pad9_ net-_u2-pad10_ net-_u2-pad11_ net-_u2-pad12_ ] [net-_r6-pad1_ net-_r5-pad1_ net-_r4-pad1_ net-_r3-pad1_ net-_r2-pad1_ net-_r1-pad1_ ] u9
+* Schematic Name:                             mayur_wallace, NgSpice Name: mayur_wallace
+.model u2 mayur_wallace(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             adc_bridge_6, NgSpice Name: adc_bridge
+.model u8 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 ) 
+* Schematic Name:                             dac_bridge_6, NgSpice Name: dac_bridge
+.model u9 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 ) 
+.tran 0.1e-00 40e-00 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(a2) v(a1)+6 v(a0)+12 v(b2)+18 v(b1)+2 v(b0)+30 v(prod5)+36 v(prod3)+42 v(prod1)+48 v(prod0)+54 v(prod4)+60 v(prod2)+66
+.endc
+.end
+
+
+## Waveforms
+<img width="1340" alt="Screenshot 2022-03-07 at 8 06 01 PM" src="https://user-images.githubusercontent.com/59500283/157094948-38474f65-1df7-495b-a86c-1bbf85e27c6e.png">
+
+Using GAW We Plot a0,a1,a2,b0,b1,b2,prod0,prod1,prod2,prod3,prod4,prod5 in Different Planes.
+## Using_GAW
+<img width="1436" alt="Screenshot 2022-03-07 at 8 11 04 PM" src="https://user-images.githubusercontent.com/59500283/157095200-ae6d6039-8e81-41bd-8fa2-8e8540c6e32c.png">
+<img width="1439" alt="Screenshot 2022-03-07 at 8 27 15 PM" src="https://user-images.githubusercontent.com/59500283/157095226-568362ab-c78c-484a-a63f-73b3c89b98c1.png">
 
 
 ## Conclusion
