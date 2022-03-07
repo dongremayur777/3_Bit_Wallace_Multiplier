@@ -223,7 +223,7 @@ Using GAW We Plot a0,a1,a2,b0,b1,b2,prod0,prod1,prod2,prod3,prod4,prod5 in Diffe
 
 
 ## Conclusion
-Thus, the Multiplication for a Two 3_Bit Numbers is achieved using Wallace Multiplier.
+Thus ,The Multiplication for a Two 3_Bit Numbers is achieved using Wallace Multiplier.
 
 ## Author
 Mayur Dongre , Indian Institute of Information Technoology Nagpur.
