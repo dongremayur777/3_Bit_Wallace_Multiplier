@@ -151,6 +151,9 @@ Using NGVeri and the above Verilog Code We Create the 3_Bit_Wallace Model.
 
 ## Schematic_Model
 
+The Mixed Signal Circuit is made up of Two Parts Digital and Analog.
+In this case the Wallace Model is Digital Part and the ADC DAC Bridge is Analog Part in the Schematic.
+
 <img width="1346" alt="Screenshot 2022-03-07 at 8 04 00 PM" src="https://user-images.githubusercontent.com/59500283/157094037-2ddcece6-f239-4c77-9935-6e3b7d5460d0.png">
 
 After Drawing the Schematic we generate a netlist and then we use a KICAD to NGSPICE Converter
