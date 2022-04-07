@@ -16,6 +16,7 @@ Mixed_Signal_Circuit
   * [Author](#author)
   * [Acknowledgement](#acknowlegement)
   * [References](#references)
+  * [Result](#result)
 
 
 ## Abstract
