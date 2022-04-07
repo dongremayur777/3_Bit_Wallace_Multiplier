@@ -239,6 +239,9 @@ Mayur Dongre , Indian Institute of Information Technoology Nagpur.
 
   2)Youtube Video -https://www.youtube.com/watch?v=lcPIMvI57dM&t=114s
 
-  3)PriyankaMishraandSeemaNayak.AStudyon Wallace Tree Multiplier. https://www.researchgate.net/publication/32720922 
+  3)PriyankaMishraandSeemaNayak.AStudyon Wallace Tree Multiplier. https://www.researchgate.net/publication/32720922
+
+## Result 
+This Design Won Rs 10,000 and got selected in Outstanding Category in Mixed Signal Circuit Design Marathon conducted by IITB,VSD,ESIM FOSSE.
 
   
