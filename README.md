@@ -233,8 +233,7 @@ Thus ,The Multiplication for a Two 3_Bit Numbers is achieved using Wallace Multi
 Mayur Dongre , Indian Institute of Information Technoology Nagpur.
 ## Acknowledgement
 1. Kunal Ghosh, Co-founder, VSD Corp. Pvt. Ltd. - kunalpghosh@gmail.com
-2. Sameer Durgoji, NIT Karnataka
-3. https://esim.marathoniitb.in/
+2. https://esim.marathoniitb.in/
 ## References
   1)Wikipedia-https://en.wikipedia.org/wiki/Wallace_tree
 
